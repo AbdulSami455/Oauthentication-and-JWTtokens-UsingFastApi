@@ -16,7 +16,7 @@ SECRET_KEY="SDFSDFSDJFDSIFJDSIJFIDSmodg9dsjfisduf8d8fdsuf7ds7f7ds774738838383"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
 
-
+#Creating Token
 def create_access_token(data:dict):
   to_encode=data.copy()
 
