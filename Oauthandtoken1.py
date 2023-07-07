@@ -16,7 +16,7 @@ SECRET_KEY="SDFSDFSDJFDSIFJDSIJFIDSmodg9dsjfisduf8d8fdsuf7ds7f7ds774738838383"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
 
-"""
+
 def create_access_token(data:dict):
   to_encode=data.copy()
 
@@ -50,4 +50,3 @@ def get_current_user(token: str = Depends()):
   user = db.query(models.User).filter(models.User.id == token.id).first()
 
   return user
-"""
