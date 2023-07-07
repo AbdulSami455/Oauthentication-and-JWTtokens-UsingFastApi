@@ -41,4 +41,32 @@ The hashing function in the hashing1 module is used to hash user passwords using
  The verify function in the hashing1 module compares a plain password with a hashed password to verify their match.
 9. 𝗧𝗼𝗸𝗲𝗻 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗶𝗼𝗻 𝗗𝗲𝘁𝗮𝗶𝗹𝘀
 The code includes a secret key (SECRET_KEY), algorithm (ALGORITHM), and expiration time (ACCESS_TOKEN_EXPIRE_MINUTES) for
-JWT-based token generation. However, the token generation logic is commented out, and only the token endpoint is exposed for simplicity.
+JWT-based token generation. However, the token generation logic is commented out, and only the token endpoint is exposed for simplicity.𝗧𝗼𝗸𝗲𝗻 𝗚𝗲𝗻𝗲𝗿𝗮𝘁𝗶𝗼𝗻 𝗗𝗲𝘁𝗮𝗶𝗹𝘀
+
+
+𝗨𝘀𝗮𝗴𝗲
+𝗖𝗿𝗲𝗮𝘁𝗲 𝗨𝘀𝗲𝗿
+Endpoint: /createuser
+{
+  "email": "example@example.com",
+  "password": "password123"
+}
+
+Response:
+{
+  "message": "User Created"
+}
+𝗟𝗼𝗴𝗶𝗻
+Endpoint:/loginnow
+Method: POST
+
+Request Body:
+{
+  "email": "example@example.com",
+  "password": "password123"
+}
+
+
+
+
+
