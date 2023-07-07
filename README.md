@@ -66,6 +66,7 @@ Request Body:
 }
 
 
+file:///home/sami/Desktop/Python/Screenshot.png
 
 
 
