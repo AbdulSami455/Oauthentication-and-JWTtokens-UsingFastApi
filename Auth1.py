@@ -3,7 +3,7 @@ from pydantic import BaseModel
 import psycopg2
 from fastapi.security.oauth2 import OAuth2PasswordRequestForm
 from psycopg2.extras import  RealDictCursor
-import utilis,Oauth
+import hashing1,Oauthandtoken1
 import random
 from typing import Optional
 def UserLogin(BaseModel):
@@ -36,7 +36,7 @@ auth=FastAPI()
 
 @auth.post('/createuser')
 def createuser(newuser:user):
-    hashpass=utilis.hashing(newuser.password)
+    hashpass=hashing1.hashing(newuser.password)
     num = random.randrange(4, 90000)
     cursor.execute("""insert into users(id,email,password)values(%s,%s,%s)""", (num, newuser.email, hashpass))
     conn.commit()
@@ -56,14 +56,14 @@ def login(newuser:user):
     provided_password = newuser.password
 
     # Compare the provided password with the stored password
-    if utilis.verify(provided_password, stored_password):
+    if hashing1.verify(provided_password, stored_password):
         return {"message": "LoORDER BY id ASC gin successful"}
     else:
         return {"message": "Incorrect password"}
 @auth.post('/token')
 def tokengenerate(user:OAuth2PasswordRequestForm=Depends()):
 
-  access_token=Oauth.create_access_token(data={"username":user.username})
+  access_token=Oauthandtoken1.create_access_token(data={"username":user.username})
   return {"access_token":access_token,"type":"bearer"}
 
 
