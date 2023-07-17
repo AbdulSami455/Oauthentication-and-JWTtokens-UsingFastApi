@@ -72,7 +72,7 @@ def create_access_token(data: dict, expires_delta: timedelta):
 app = FastAPI()
 
 
-#first
+#first post request to get token
 @app.post("/token", response_model=Token)
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     user = authenticate_user(form_data.username, form_data.password)
@@ -85,6 +85,8 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
+
+#get request to find token is correct or not
 @app.get("/protected")
 async def protected_route(token: str = Depends(OAuth2PasswordBearer(tokenUrl="/token"))):
     try:
