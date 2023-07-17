@@ -14,15 +14,20 @@ ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 120
 
 
-
+#Pydantic Models for Different WOrks
 class User(BaseModel):
     username: str
     password: str
 
+
+
+#model for token
 class Token(BaseModel):
     access_token: str
     token_type: str
 
+
+#WE create own database in Progrma for authentication
 fake_users_db = {}
 
 new_username = "abdulsami"
@@ -30,9 +35,13 @@ new_password = "1234"
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+
+#function to verify password from hashing done on it
 def verify_password(plain_password, hashed_password):
     return pwd_context.verify(plain_password, hashed_password)
 
+
+#get hash password
 def get_password_hash(password):
     return pwd_context.hash(password)
 
@@ -41,6 +50,7 @@ fake_users_db[new_username] = {
     "hashed_password": get_password_hash(new_password),
 }
 
+#function to authenticate user from database
 def authenticate_user(username: str, password: str):
     if username in fake_users_db:
         user = fake_users_db[username]
