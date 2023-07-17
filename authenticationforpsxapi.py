@@ -59,6 +59,7 @@ def authenticate_user(username: str, password: str):
 
     return None
 
+#function to create access token for authentication
 def create_access_token(data: dict, expires_delta: timedelta):
     to_encode = data.copy()
     expire = datetime.utcnow() + expires_delta
