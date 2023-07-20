@@ -77,7 +77,10 @@ file:///home/sami/Desktop/Python/Screenshot.png
 4. Incorrect Token Algorithm
 5. Missing Authentication
 6. Storing Sensitive Data in Tokens
-7. Token Not Sent in Headers:
+7. Token Not Sent in Headers
+8. Incorrect Token Signature
+9. Not Handling Token Revocation
+10. Not Using HTTPS
 
 
 
